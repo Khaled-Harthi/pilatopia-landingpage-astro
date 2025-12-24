@@ -1,0 +1,93 @@
+---
+import type { Language } from '@/lib/translations';
+import { translations } from '@/lib/translations';
+import { Clock } from 'lucide-react';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+const isRTL = lang === 'ar';
+
+// Tag colors
+const tagColors: Record<string, { bg: string; text: string }> = {
+  "First Timer": { bg: "bg-[#00C896]/15", text: "text-[#00C896]" },
+  "للمبتدئات": { bg: "bg-[#00C896]/15", text: "text-[#00C896]" },
+  "Required": { bg: "bg-[#E39C82]/15", text: "text-[#E39C82]" },
+  "مطلوب": { bg: "bg-[#E39C82]/15", text: "text-[#E39C82]" },
+  "Beginner": { bg: "bg-[#60B5F4]/15", text: "text-[#60B5F4]" },
+  "مبتدئ": { bg: "bg-[#60B5F4]/15", text: "text-[#60B5F4]" },
+  "Intermediate": { bg: "bg-[#FF9500]/15", text: "text-[#FF9500]" },
+  "متوسط": { bg: "bg-[#FF9500]/15", text: "text-[#FF9500]" },
+  "Advanced": { bg: "bg-[#FF3B30]/15", text: "text-[#FF3B30]" },
+  "متقدم": { bg: "bg-[#FF3B30]/15", text: "text-[#FF3B30]" },
+  "All Levels": { bg: "bg-[#9B59B6]/15", text: "text-[#9B59B6]" },
+  "جميع المستويات": { bg: "bg-[#9B59B6]/15", text: "text-[#9B59B6]" },
+};
+
+// Tags per class
+const classTags: { en: string[]; ar: string[] }[] = [
+  { en: ["First Timer", "Required"], ar: ["للمبتدئات", "مطلوب"] },
+  { en: ["Beginner"], ar: ["مبتدئ"] },
+  { en: ["Intermediate"], ar: ["متوسط"] },
+  { en: ["Intermediate", "Advanced"], ar: ["متوسط", "متقدم"] },
+  { en: ["Intermediate"], ar: ["متوسط"] },
+  { en: ["All Levels"], ar: ["جميع المستويات"] },
+];
+---
+
+<section id="classes" class="section-padding bg-[var(--bg-cream)]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-[var(--primary-dark)] font-medium mb-3 tracking-wide text-sm uppercase">
+        {t.classes.label}
+      </p>
+      <h2
+        class="text-4xl sm:text-5xl font-medium text-[var(--text-primary)] mb-4"
+        style={`font-family: ${isRTL ? 'var(--font-body)' : 'var(--font-rufina), Georgia, serif'}`}
+      >
+        {t.classes.title} <span class={isRTL ? '' : 'italic'}>{t.classes.titleHighlight}</span>
+      </h2>
+      <p class="text-[var(--text-secondary)] max-w-2xl mx-auto">
+        {t.classes.subtitle}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {t.classes.classList.map((cls, index) => {
+        const tags = classTags[index]?.[lang] || classTags[index]?.en || [];
+        return (
+          <div class="bg-white rounded-3xl overflow-hidden card-hover cursor-pointer group">
+            <div class="h-1.5 bg-gray-200" />
+            <div class="p-8">
+              <div class={`flex flex-wrap gap-2 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {tags.map((tagName) => {
+                  const tagStyle = tagColors[tagName] || tagColors["All Levels"];
+                  return (
+                    <span class={`px-3 py-1.5 ${tagStyle.bg} ${tagStyle.text} rounded-full text-xs font-semibold`}>
+                      {tagName}
+                    </span>
+                  );
+                })}
+                <span class="px-3 py-1.5 bg-gray-100 text-gray-500 rounded-full text-xs font-medium inline-flex items-center gap-1">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  50 {t.classes.duration}
+                </span>
+              </div>
+              <h3 class="text-xl font-semibold text-[var(--text-primary)] mb-3 group-hover:text-[var(--primary-dark)] transition-colors">
+                {cls.name}
+              </h3>
+              <p class="text-[var(--text-secondary)] text-sm mb-5 leading-relaxed line-clamp-3">
+                {cls.description}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

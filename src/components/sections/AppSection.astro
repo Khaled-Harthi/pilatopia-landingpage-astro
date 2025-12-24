@@ -1,0 +1,131 @@
+---
+import type { Language } from '@/lib/translations';
+import { translations } from '@/lib/translations';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+const isRTL = lang === 'ar';
+const appStoreLink = "https://apps.apple.com/us/app/pilatopia/id6747145107";
+---
+
+<section id="mobile-app" class="section-padding bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class={isRTL ? 'lg:order-2' : ''}>
+        <p class="text-[var(--primary-dark)] font-medium mb-3 tracking-wide text-sm uppercase">
+          {t.app.label}
+        </p>
+        <h2
+          class="text-4xl sm:text-5xl font-medium text-[var(--text-primary)] leading-tight mb-6"
+          style={`font-family: ${isRTL ? 'var(--font-body)' : 'var(--font-rufina), Georgia, serif'}`}
+        >
+          {t.app.title} <span class={isRTL ? '' : 'italic'}>{t.app.titleHighlight}</span>
+        </h2>
+        <p class="text-[var(--text-secondary)] mb-8 text-lg">
+          {t.app.subtitle}
+        </p>
+
+        <div class="space-y-4 mb-8">
+          {t.app.features.map((text, index) => (
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-[var(--primary)]/20 flex items-center justify-center">
+                {index === 0 && (
+                  <svg class="w-[18px] h-[18px] text-[var(--primary-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2" /><line x1="16" x2="16" y1="2" y2="6" /><line x1="8" x2="8" y1="2" y2="6" /><line x1="3" x2="21" y1="10" y2="10" />
+                  </svg>
+                )}
+                {index === 1 && (
+                  <svg class="w-[18px] h-[18px] text-[var(--primary-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="6" /><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                  </svg>
+                )}
+                {index === 2 && (
+                  <svg class="w-[18px] h-[18px] text-[var(--primary-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                )}
+              </div>
+              <span class="text-[var(--text-secondary)]">{text}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- QR Code for desktop, direct link works for all -->
+        <div class="inline-flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
+          <div class="bg-white p-2 rounded-lg border border-gray-100 hidden sm:block">
+            <img
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${encodeURIComponent(appStoreLink)}`}
+              alt="App Store QR"
+              class="w-20 h-20"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <p class="text-sm text-[var(--text-secondary)] hidden sm:block">
+              {lang === 'ar' ? 'امسحي الكود لتحميل التطبيق' : 'Scan to download'}
+            </p>
+            <a
+              href={appStoreLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-all text-sm font-medium"
+            >
+              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+              </svg>
+              {t.offer.appStore}
+            </a>
+          </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="mt-8 pt-6 border-t border-[var(--border-light)]">
+          <p class="text-xs text-[var(--text-secondary)] mb-4">{isRTL ? 'طرق الدفع المدعومة' : 'Supported Payment Methods'}</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="h-8 px-2 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <img src="/mada-logo.png" alt="Mada" class="h-5 w-auto object-contain" loading="lazy" />
+            </div>
+            <div class="h-8 px-2 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <img src="/visa-logo.png" alt="Visa" class="h-5 w-auto object-contain" loading="lazy" />
+            </div>
+            <div class="h-8 px-3 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <svg viewBox="0 0 32 20" class="h-4 w-auto">
+                <circle cx="11" cy="10" r="8" fill="#eb001b" />
+                <circle cx="21" cy="10" r="8" fill="#f79e1b" />
+                <path d="M16 3.5a8 8 0 0 0 0 13 8 8 0 0 0 0-13z" fill="#ff5f00" />
+              </svg>
+            </div>
+            <div class="h-8 px-3 bg-black rounded-lg flex items-center justify-center">
+              <svg viewBox="0 0 50 20" class="h-4 w-auto" fill="white">
+                <path d="M9.2 5.3C8.7 5.9 7.9 6.4 7.1 6.3C7 5.5 7.4 4.6 7.9 4C8.4 3.4 9.3 2.9 10 2.9C10.1 3.7 9.7 4.6 9.2 5.3ZM10 6.8C8.9 6.7 8 7.4 7.4 7.4C6.9 7.4 6.1 6.8 5.2 6.8C4.1 6.8 3.1 7.5 2.5 8.5C1.4 10.5 2.2 13.5 3.3 15.2C3.9 16 4.5 16.9 5.4 16.9C6.2 16.9 6.5 16.4 7.6 16.4C8.6 16.4 8.9 16.9 9.8 16.9C10.7 16.9 11.3 16.1 11.8 15.3C12.4 14.4 12.7 13.5 12.7 13.5C12.7 13.5 10.9 12.8 10.9 10.7C10.9 8.9 12.3 8.1 12.4 8C11.5 6.7 10.1 6.6 10 6.8Z" />
+                <path d="M17.2 3.5V17H19.3V12.2H22.4C25.2 12.2 27.2 10.3 27.2 7.8C27.2 5.3 25.3 3.5 22.5 3.5H17.2ZM19.3 5.3H21.9C23.9 5.3 25 6.3 25 7.9C25 9.5 23.9 10.5 21.9 10.5H19.3V5.3Z" />
+              </svg>
+            </div>
+            <div class="h-8 px-2 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <img src="/tamara-logo.png" alt="Tamara" class="h-5 w-auto object-contain" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone Mockup -->
+      <div class={`relative flex justify-center ${isRTL ? 'lg:order-1' : ''}`}>
+        <div class="relative w-64 h-[520px] bg-[var(--text-primary)] rounded-[3rem] p-3 shadow-2xl">
+          <div class="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10"></div>
+          <div class="w-full h-full bg-white rounded-[2.4rem] overflow-hidden">
+            <img
+              src="/app-screenshot.png"
+              alt="Pilatopia App"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

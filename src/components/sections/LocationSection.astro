@@ -1,0 +1,98 @@
+---
+import type { Language } from '@/lib/translations';
+import { translations } from '@/lib/translations';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+const isRTL = lang === 'ar';
+---
+
+<section class="section-padding bg-[var(--bg-section)]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Google Maps Embed -->
+      <div class={`aspect-square lg:aspect-auto lg:h-full min-h-[400px] rounded-3xl overflow-hidden relative ${isRTL ? 'lg:order-2' : ''}`}>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.123!2d46.6176!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5df12437abdf06e8!2sPilatopia%20Studio!5e0!3m2!1sen!2ssa!4v1703123456789"
+          width="100%"
+          height="100%"
+          style="border: 0; min-height: 400px;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Pilatopia Studio Location - Al Narjis, Riyadh"
+          class="absolute inset-0"
+        ></iframe>
+      </div>
+
+      <!-- Info -->
+      <div class={`flex flex-col justify-center ${isRTL ? 'lg:order-1' : ''}`}>
+        <p class="text-[var(--primary-dark)] font-medium mb-3 tracking-wide text-sm uppercase">
+          {t.location.label}
+        </p>
+        <h2
+          class="text-4xl sm:text-5xl font-medium text-[var(--text-primary)] leading-tight mb-8"
+          style={`font-family: ${isRTL ? 'var(--font-body)' : 'var(--font-rufina), Georgia, serif'}`}
+        >
+          {t.location.title}
+        </h2>
+
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div class="w-12 h-12 rounded-full bg-[var(--primary)]/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[var(--primary-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-medium text-[var(--text-primary)] mb-1">{t.location.address}</p>
+              <p class="text-[var(--text-secondary)] whitespace-pre-line">{t.location.addressValue}</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-12 h-12 rounded-full bg-[var(--primary)]/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[var(--primary-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-medium text-[var(--text-primary)] mb-1">{t.location.hours}</p>
+              <p class="text-[var(--text-secondary)] whitespace-pre-line">{t.location.hoursValue}</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-12 h-12 rounded-full bg-[var(--primary)]/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[var(--primary-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-medium text-[var(--text-primary)] mb-1">{t.location.contact}</p>
+              <p class="text-[var(--text-secondary)]">0550614150</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="https://www.google.com/maps/place/Pilatopia+Studio/data=!4m2!3m1!1s0x0:0x5df12437abdf06e8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-[var(--primary-dark)] font-medium hover:gap-3 transition-all"
+          >
+            {t.location.getDirections}
+            <svg class={`w-[18px] h-[18px] ${isRTL ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

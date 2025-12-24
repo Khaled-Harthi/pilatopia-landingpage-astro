@@ -1,8 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HomePage from '../components/HomePage';
+import type { Language } from '@/lib/translations';
+
+// React Islands (interactive components)
+import Navigation from '../components/islands/Navigation';
+import HeroSection from '../components/islands/HeroSection';
+import GiftSection from '../components/islands/GiftSection';
+import PricingSection from '../components/islands/PricingSection';
+import FAQSection from '../components/islands/FAQSection';
+import MembershipModal from '../components/islands/MembershipModal';
+
+// Static Astro Sections (zero JS)
+import StudioSection from '../components/sections/StudioSection.astro';
+import ClassesSection from '../components/sections/ClassesSection.astro';
+import AppSection from '../components/sections/AppSection.astro';
+import LocationSection from '../components/sections/LocationSection.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import Footer from '../components/sections/Footer.astro';
+
+// Read language from cookie, default to 'en'
+const langCookie = Astro.cookies.get('pilatopia-lang');
+const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
 ---
 
-<Layout>
-  <HomePage client:load />
+<Layout lang={lang}>
+  <main>
+    <!-- Navigation: client:load for immediate interactivity (language toggle, mobile menu) -->
+    <Navigation client:load lang={lang} />
+
+    <!-- Hero: client:load for immediate animations and class carousel -->
+    <HeroSection client:load lang={lang} />
+
+    <!-- Gift Section: client:visible (has occasion rotation animation) -->
+    <GiftSection client:visible lang={lang} />
+
+    <!-- Studio Gallery: Static Astro (no JS needed) -->
+    <StudioSection lang={lang} />
+
+    <!-- Pricing: client:visible (has collapsible packages) -->
+    <PricingSection client:visible lang={lang} />
+
+    <!-- App Section: Static Astro (no JS needed) -->
+    <AppSection lang={lang} />
+
+    <!-- Location: Static Astro (Google Maps embed, no JS needed) -->
+    <LocationSection lang={lang} />
+
+    <!-- CTA: Static Astro (no JS needed) -->
+    <CTASection lang={lang} />
+
+    <!-- Classes: Static Astro (no JS needed) -->
+    <ClassesSection lang={lang} />
+
+    <!-- FAQ: client:visible (has accordion) -->
+    <FAQSection client:visible lang={lang} />
+
+    <!-- Footer: Static Astro (no JS needed) -->
+    <Footer lang={lang} />
+
+    <!-- Membership Modal: client:idle (only hydrate when browser is idle) -->
+    <MembershipModal client:idle lang={lang} />
+  </main>
 </Layout>
