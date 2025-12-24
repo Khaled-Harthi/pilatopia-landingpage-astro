@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = "Pilatopia | Pilates Studio in Al Narjis, Riyadh | استوديو بيلاتس النرجس الرياض",
-  description = "Experience the art of Pilates at Pilatopia, a boutique Pilates studio in Al Narjis (النرجس), Riyadh. Offering reformer, mat, and private sessions. Book your first class today. استوديو بيلاتس في حي النرجس الرياض."
+  description = "Experience the art of Pilates at Pilatopia, a boutique Pilates studio in Al Narjis (النرجس), Riyadh. Offering reformer, mat, and private sessions. Book your first class today. استوديو بيلاتس في حي النرجس الرياض.",
 } = Astro.props;
 
 // JSON-LD Structured Data for Local Business
@@ -18,7 +18,8 @@ const structuredData = {
   "@id": "https://pilatopia.studio/#organization",
   name: "Pilatopia",
   alternateName: "بيلاتوبيا",
-  description: "A boutique Pilates studio offering reformer, tower, wunda chairs & ladder barrels, and private sessions in Al Narjis, Riyadh, Saudi Arabia.",
+  description:
+    "A boutique Pilates studio offering reformer, tower, wunda chairs & ladder barrels, and private sessions in Al Narjis, Riyadh, Saudi Arabia.",
   url: "https://pilatopia.studio",
   telephone: "+966550614150",
   email: "jawaher@pilatopia.studio",
@@ -47,7 +48,14 @@ const structuredData = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      dayOfWeek: [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+      ],
       opens: "14:00",
       closes: "22:00",
     },
@@ -60,73 +68,75 @@ const structuredData = {
     {
       "@type": "Offer",
       "@id": "https://pilatopia.studio/#single-pass",
-      "name": "Single Pass",
-      "description": "One Pilates reformer class session",
-      "price": "290",
-      "priceCurrency": "SAR",
-      "availability": "https://schema.org/InStock",
-      "itemOffered": {
+      name: "Single Pass",
+      description: "One Pilates reformer class session",
+      price: "290",
+      priceCurrency: "SAR",
+      availability: "https://schema.org/InStock",
+      itemOffered: {
         "@type": "Service",
-        "name": "Pilates Reformer Class"
-      }
+        name: "Pilates Reformer Class",
+      },
     },
     {
       "@type": "Offer",
       "@id": "https://pilatopia.studio/#foundation-package",
-      "name": "Foundation Package",
-      "description": "5 Pilates classes. Valid for 3 months.",
-      "price": "1242",
-      "priceCurrency": "SAR",
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2025-12-31",
-      "includesObject": {
+      name: "Foundation Package",
+      description: "5 Pilates classes. Valid for 3 months.",
+      price: "1242",
+      priceCurrency: "SAR",
+      availability: "https://schema.org/InStock",
+      priceValidUntil: "2025-12-31",
+      includesObject: {
         "@type": "TypeAndQuantityNode",
-        "amountOfThisGood": 5,
-        "typeOfGood": {
+        amountOfThisGood: 5,
+        typeOfGood: {
           "@type": "Service",
-          "name": "Pilates Reformer Class"
+          name: "Pilates Reformer Class",
         },
-        "unitText": "classes"
-      }
+        unitText: "classes",
+      },
     },
     {
       "@type": "Offer",
       "@id": "https://pilatopia.studio/#transformation-package",
-      "name": "Transformation Package",
-      "description": "10 Pilates classes. Best results in 5 weeks. Valid for 3 months.",
-      "price": "2241",
-      "priceCurrency": "SAR",
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2025-12-31",
-      "includesObject": {
+      name: "Transformation Package",
+      description:
+        "10 Pilates classes. Best results in 5 weeks. Valid for 3 months.",
+      price: "2241",
+      priceCurrency: "SAR",
+      availability: "https://schema.org/InStock",
+      priceValidUntil: "2025-12-31",
+      includesObject: {
         "@type": "TypeAndQuantityNode",
-        "amountOfThisGood": 10,
-        "typeOfGood": {
+        amountOfThisGood: 10,
+        typeOfGood: {
           "@type": "Service",
-          "name": "Pilates Reformer Class"
+          name: "Pilates Reformer Class",
         },
-        "unitText": "classes"
-      }
+        unitText: "classes",
+      },
     },
     {
       "@type": "Offer",
       "@id": "https://pilatopia.studio/#dedication-package",
-      "name": "Dedication Package",
-      "description": "20 Pilates classes. Best value per class. Valid for 3 months.",
-      "price": "3555",
-      "priceCurrency": "SAR",
-      "availability": "https://schema.org/InStock",
-      "priceValidUntil": "2025-12-31",
-      "includesObject": {
+      name: "Dedication Package",
+      description:
+        "20 Pilates classes. Best value per class. Valid for 3 months.",
+      price: "3555",
+      priceCurrency: "SAR",
+      availability: "https://schema.org/InStock",
+      priceValidUntil: "2025-12-31",
+      includesObject: {
         "@type": "TypeAndQuantityNode",
-        "amountOfThisGood": 20,
-        "typeOfGood": {
+        amountOfThisGood: 20,
+        typeOfGood: {
           "@type": "Service",
-          "name": "Pilates Reformer Class"
+          name: "Pilates Reformer Class",
         },
-        "unitText": "classes"
-      }
-    }
+        unitText: "classes",
+      },
+    },
   ],
   aggregateRating: {
     "@type": "AggregateRating",
@@ -147,7 +157,8 @@ const structuredData = {
           itemOffered: {
             "@type": "Service",
             name: "Foundation",
-            description: "Essential intro to the reformer machine. Required for all new members.",
+            description:
+              "Essential intro to the reformer machine. Required for all new members.",
           },
         },
       },
@@ -159,7 +170,8 @@ const structuredData = {
           itemOffered: {
             "@type": "Service",
             name: "Beginners Reformer",
-            description: "Build strength, improve posture, and master fundamental movements for new practitioners.",
+            description:
+              "Build strength, improve posture, and master fundamental movements for new practitioners.",
           },
         },
       },
@@ -171,7 +183,8 @@ const structuredData = {
           itemOffered: {
             "@type": "Service",
             name: "Intermediate Reformer",
-            description: "Dynamic flows, increased resistance, and advanced variations.",
+            description:
+              "Dynamic flows, increased resistance, and advanced variations.",
           },
         },
       },
@@ -183,7 +196,8 @@ const structuredData = {
           itemOffered: {
             "@type": "Service",
             name: "Jump Reformer",
-            description: "High-intensity cardio Pilates with explosive jumpboard sequences.",
+            description:
+              "High-intensity cardio Pilates with explosive jumpboard sequences.",
           },
         },
       },
@@ -195,7 +209,8 @@ const structuredData = {
           itemOffered: {
             "@type": "Service",
             name: "Chairs & Barrels",
-            description: "Specialty equipment class using Wunda Chair and Ladder Barrel.",
+            description:
+              "Specialty equipment class using Wunda Chair and Ladder Barrel.",
           },
         },
       },
@@ -227,11 +242,20 @@ const structuredData = {
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="Pilates Riyadh, Pilates Al Narjis, Pilates studio Saudi Arabia, reformer Pilates Riyadh, mat Pilates, بيلاتس الرياض, بيلاتس النرجس, استوديو بيلاتس, wellness Riyadh, fitness Riyadh, boutique studio" />
+    <meta
+      name="keywords"
+      content="Pilates Riyadh, Pilates Al Narjis, Pilates studio Saudi Arabia, reformer Pilates Riyadh, mat Pilates, بيلاتس الرياض, بيلاتس النرجس, استوديو بيلاتس, wellness Riyadh, fitness Riyadh, boutique studio"
+    />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Pilatopia | Pilates Studio in Al Narjis, Riyadh" />
-    <meta property="og:description" content="Experience the art of Pilates in our serene sanctuary in Al Narjis, Riyadh. Reformer, mat, and private sessions. Begin your transformation today." />
+    <meta
+      property="og:title"
+      content="Pilatopia | Pilates Studio in Al Narjis, Riyadh"
+    />
+    <meta
+      property="og:description"
+      content="Experience the art of Pilates in our serene sanctuary in Al Narjis, Riyadh. Reformer, mat, and private sessions. Begin your transformation today."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ar_SA" />
@@ -240,8 +264,14 @@ const structuredData = {
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pilatopia | Pilates Studio in Al Narjis, Riyadh" />
-    <meta name="twitter:description" content="Experience the art of Pilates in our serene sanctuary in Al Narjis, Riyadh. Begin your transformation today." />
+    <meta
+      name="twitter:title"
+      content="Pilatopia | Pilates Studio in Al Narjis, Riyadh"
+    />
+    <meta
+      name="twitter:description"
+      content="Experience the art of Pilates in our serene sanctuary in Al Narjis, Riyadh. Begin your transformation today."
+    />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://pilatopia.studio" />
@@ -250,43 +280,98 @@ const structuredData = {
 
     <!-- Robots -->
     <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <meta
+      name="googlebot"
+      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Rufina:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Rufina:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QH8NQR7MJ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QH8NQR7MJ"
+    ></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0QH8NQR7MJ');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-0QH8NQR7MJ");
     </script>
 
     <!-- TikTok Pixel -->
     <script is:inline>
-      !function (w, d, t) {
-        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-        var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-        ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-        ttq.load('D54I30RC77UFVMJSD0U0');
+      !(function (w, d, t) {
+        w.TiktokAnalyticsObject = t;
+        var ttq = (w[t] = w[t] || []);
+        ((ttq.methods = [
+          "page",
+          "track",
+          "identify",
+          "instances",
+          "debug",
+          "on",
+          "off",
+          "once",
+          "ready",
+          "alias",
+          "group",
+          "enableCookie",
+          "disableCookie",
+          "holdConsent",
+          "revokeConsent",
+          "grantConsent",
+        ]),
+          (ttq.setAndDefer = function (t, e) {
+            t[e] = function () {
+              t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+            };
+          }));
+        for (var i = 0; i < ttq.methods.length; i++)
+          ttq.setAndDefer(ttq, ttq.methods[i]);
+        ((ttq.instance = function (t) {
+          for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)
+            ttq.setAndDefer(e, ttq.methods[n]);
+          return e;
+        }),
+          (ttq.load = function (e, n) {
+            var r = "https://analytics.tiktok.com/i18n/pixel/events.js",
+              o = n && n.partner;
+            ((ttq._i = ttq._i || {}),
+              (ttq._i[e] = []),
+              (ttq._i[e]._u = r),
+              (ttq._t = ttq._t || {}),
+              (ttq._t[e] = +new Date()),
+              (ttq._o = ttq._o || {}),
+              (ttq._o[e] = n || {}));
+            n = document.createElement("script");
+            ((n.type = "text/javascript"),
+              (n.async = !0),
+              (n.src = r + "?sdkid=" + e + "&lib=" + t));
+            e = document.getElementsByTagName("script")[0];
+            e.parentNode.insertBefore(n, e);
+          }));
+        ttq.load("D54I30RC77UFVMJSD0U0");
         ttq.page();
-      }(window, document, 'ttq');
+      })(window, document, "ttq");
     </script>
 
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
 
     <style>
       :root {
-        --font-rufina: 'Rufina', Georgia, serif;
-        --font-body: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+        --font-rufina: "Rufina", Georgia, serif;
+        --font-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
       }
     </style>
   </head>

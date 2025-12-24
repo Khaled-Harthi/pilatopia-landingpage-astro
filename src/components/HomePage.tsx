@@ -31,21 +31,21 @@ import MembershipModal from "@/components/MembershipModal";
 
 // Lead form context to open modal from anywhere
 const LeadFormContext = createContext<{ openLeadForm: () => void }>({
-  openLeadForm: () => {},
+  openLeadForm: () => { },
 });
 const useLeadForm = () => useContext(LeadFormContext);
 
 // Membership modal context to open modal from anywhere
 const MembershipContext = createContext<{ openMembership: () => void }>({
-  openMembership: () => {},
+  openMembership: () => { },
 });
 const useMembership = () => useContext(MembershipContext);
 
 // SAR Currency Symbol Component
 const SARSymbol = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 1124.14 1256.39" className={className} fill="currentColor">
-    <path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/>
-    <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/>
+    <path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+    <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
   </svg>
 );
 
@@ -72,7 +72,7 @@ const WhatsAppContactCard = ({
 
   const WhatsAppIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
   );
 
@@ -127,63 +127,63 @@ const WhatsAppContactCard = ({
   // Desktop: Static contact card (always visible)
   return (
     <div className="inline-flex flex-col items-start gap-2">
-        <p className="text-sm text-[var(--text-secondary)]">
-          {language === 'ar' ? 'تواصلي معنا عبر واتساب' : 'Chat with us on WhatsApp'}
-        </p>
-    <div className="inline-flex items-center gap-6 border-2 border-gray-200 rounded-2xl px-5 py-4 hover:border-green-500/30 transition-colors bg-white shadow-sm">
-      
-      <div className="flex items-center gap-3 flex-shrink-0">
-        {/* Clickable Avatar */}
-        <a
-          href={whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative flex-shrink-0 hover:scale-105 transition-transform"
-        >
-          <img
-            src="/whatsapp-avatar.jpg"
-            alt="Pilatopia"
-            className="w-12 h-12 rounded-full object-cover ring-2 ring-green-500/20"
-          />
-          <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-            <WhatsAppIcon className="w-2.5 h-2.5 text-white" />
-          </div>
-        </a>
-        {/* Info */}
-        <div>
-          <h3 className="font-semibold text-[var(--text-primary)]">Pilatopia</h3>
+      <p className="text-sm text-[var(--text-secondary)]">
+        {language === 'ar' ? 'تواصلي معنا عبر واتساب' : 'Chat with us on WhatsApp'}
+      </p>
+      <div className="inline-flex items-center gap-6 border-2 border-gray-200 rounded-2xl px-5 py-4 hover:border-green-500/30 transition-colors bg-white shadow-sm">
+
+        <div className="flex items-center gap-3 flex-shrink-0">
+          {/* Clickable Avatar */}
           <a
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-[var(--text-secondary)] hover:text-green-600 inline-flex items-center gap-1 transition-colors"
-            dir="ltr"
+            className="relative flex-shrink-0 hover:scale-105 transition-transform"
           >
-            0550614150
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+            <img
+              src="/whatsapp-avatar.jpg"
+              alt="Pilatopia"
+              className="w-12 h-12 rounded-full object-cover ring-2 ring-green-500/20"
+            />
+            <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+              <WhatsAppIcon className="w-2.5 h-2.5 text-white" />
+            </div>
           </a>
-          <p className="text-xs text-green-600 font-medium mt-0.5">
-            {language === 'ar' ? 'بنرد عليك في دقايق!' : 'We reply in minutes!'}
+          {/* Info */}
+          <div>
+            <h3 className="font-semibold text-[var(--text-primary)]">Pilatopia</h3>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-[var(--text-secondary)] hover:text-green-600 inline-flex items-center gap-1 transition-colors"
+              dir="ltr"
+            >
+              0550614150
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <p className="text-xs text-green-600 font-medium mt-0.5">
+              {language === 'ar' ? 'بنرد عليك في دقايق!' : 'We reply in minutes!'}
+            </p>
+          </div>
+        </div>
+
+        {/* QR Code */}
+        <div className="flex flex-col items-center gap-1 flex-shrink-0">
+          <div className="bg-white p-1.5 rounded-lg border border-gray-200">
+            <img
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=${encodeURIComponent(whatsappLink)}`}
+              alt="WhatsApp QR"
+              className="w-16 h-16"
+            />
+          </div>
+          <p className="text-xs text-[var(--text-secondary)]">
+            {language === 'ar' ? 'امسحي الكود' : 'Scan to chat'}
           </p>
         </div>
       </div>
-
-      {/* QR Code */}
-      <div className="flex flex-col items-center gap-1 flex-shrink-0">
-        <div className="bg-white p-1.5 rounded-lg border border-gray-200">
-          <img
-            src={`https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=${encodeURIComponent(whatsappLink)}`}
-            alt="WhatsApp QR"
-            className="w-16 h-16"
-          />
-        </div>
-        <p className="text-xs text-[var(--text-secondary)]">
-          {language === 'ar' ? 'امسحي الكود' : 'Scan to chat'}
-        </p>
-      </div>
-    </div>
     </div>
   );
 };
@@ -228,10 +228,10 @@ function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
-          <a href="#studio" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
+            <a href="#studio" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
               {t.nav.studio}
             </a>
-            
+
             <a href="#gift" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
               {t.nav.gift}
             </a>
@@ -244,8 +244,8 @@ function Navigation() {
             <a href="#mobile-app" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
               {t.nav.app}
             </a>
-            
-            
+
+
           </div>
 
           {/* CTA and Language Toggle */}
@@ -293,15 +293,16 @@ function Navigation() {
             className="lg:hidden bg-white border-t"
           >
             <div className="px-6 py-6 space-y-4">
-            <a href="#studio" onClick={() => setIsOpen(false)} className="block py-2 text-[var(--text-primary)]">{t.nav.studio}</a>
-              <a href="#classes" onClick={() => setIsOpen(false)} className="block py-2 text-[var(--text-primary)]">{t.nav.classes}</a>
+              <a href="#studio" onClick={() => setIsOpen(false)} className="block py-2 text-[var(--text-primary)]">{t.nav.studio}</a>
               <a href="#gift" onClick={() => setIsOpen(false)} className="block py-2 text-[var(--text-primary)]">{t.nav.gift}</a>
+              <a href="#pricing" onClick={() => setIsOpen(false)} className="block py-2 text-[var(--text-primary)]">{t.nav.prices}</a>
+              <a href="#classes" onClick={() => setIsOpen(false)} className="block py-2 text-[var(--text-primary)]">{t.nav.classes}</a>
               <a href="#mobile-app" onClick={() => setIsOpen(false)} className="block py-2 text-[var(--text-primary)]">{t.nav.app}</a>
               <button
                 onClick={() => { setIsOpen(false); openMembership(); }}
                 className="block w-full text-center px-6 py-3 bg-[var(--primary)] text-white font-semibold rounded-full mt-4"
               >
-                {t.nav.bookClass}
+                {t.nav.joinUs}
               </button>
             </div>
           </motion.div>
@@ -342,18 +343,11 @@ function HeroSection() {
           >
             <motion.div
               variants={fadeInUp}
-              className="flex flex-wrap items-center gap-3 mb-4"
+              className="mb-4"
             >
               <p className="text-[var(--primary-dark)] font-medium tracking-wide text-sm uppercase">
                 {t.hero.welcome}
               </p>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--primary)]/10 text-[var(--primary-dark)] text-xs font-medium rounded-full">
-                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M12 12c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4z" />
-                </svg>
-                {isRTL ? 'استوديو نسائي' : 'Women-Only Studio'}
-              </span>
             </motion.div>
 
             <motion.h1
@@ -366,10 +360,23 @@ function HeroSection() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg text-[var(--text-secondary)] mb-10 max-w-lg leading-relaxed"
+              className="text-lg text-[var(--text-secondary)] mb-6 max-w-lg leading-relaxed"
             >
               {t.hero.subtitle}
             </motion.p>
+
+            <motion.div
+              variants={fadeInUp}
+              className="mb-8"
+            >
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--primary)]/10 text-[var(--primary-dark)] text-xs font-medium rounded-full">
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M12 12c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4z" />
+                </svg>
+                {isRTL ? 'استوديو نسائي' : 'Women-Only Studio'}
+              </span>
+            </motion.div>
 
             <motion.div
               variants={fadeInUp}
@@ -542,11 +549,10 @@ function PricingSection() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className={`relative bg-white rounded-2xl p-6 border-2 transition-all ${
-                        pkg.recommended
-                          ? 'border-[var(--primary)] shadow-lg shadow-[var(--primary)]/10 pt-8'
-                          : 'border-[var(--border-light)] hover:border-[var(--primary)]/30'
-                      }`}
+                      className={`relative bg-white rounded-2xl p-6 border-2 transition-all ${pkg.recommended
+                        ? 'border-[var(--primary)] shadow-lg shadow-[var(--primary)]/10 pt-8'
+                        : 'border-[var(--border-light)] hover:border-[var(--primary)]/30'
+                        }`}
                     >
                       {pkg.recommended && (
                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
@@ -724,14 +730,6 @@ function ClassesSection() {
                   <p className="text-[var(--text-secondary)] text-sm mb-5 leading-relaxed line-clamp-3">
                     {cls.description}
                   </p>
-
-                  {/* Perfect for badge */}
-                  <div className={`flex items-center gap-2 pt-4 border-t border-gray-100 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                    <Users size={14} className="text-gray-400" />
-                    <p className="text-xs text-gray-500 font-medium">
-                      {t.classes.perfectFor} {cls.perfect}
-                    </p>
-                  </div>
                 </div>
               </motion.div>
             );
@@ -1032,73 +1030,6 @@ function WellnessGiftSection() {
   );
 }
 
-// Testimonials Section
-function TestimonialsSection() {
-  const { t, isRTL } = useLanguage();
-
-  return (
-    <section className="section-padding bg-[var(--bg-cream)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
-          <motion.p
-            variants={fadeInUp}
-            className="text-[var(--primary-dark)] font-medium mb-3 tracking-wide text-sm uppercase"
-          >
-            {t.testimonials.label}
-          </motion.p>
-          <motion.h2
-            variants={fadeInUp}
-            className="text-4xl sm:text-5xl font-medium text-[var(--text-primary)] mb-4"
-            style={{ fontFamily: isRTL ? "var(--font-body)" : "var(--font-rufina), Georgia, serif" }}
-          >
-            {t.testimonials.title} <span className={isRTL ? "" : "italic"}>{t.testimonials.titleHighlight}</span>
-          </motion.h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {t.testimonials.list.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-3xl p-8 card-hover"
-            >
-              <div className="flex gap-1 mb-6">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-[var(--text-primary)] mb-6 leading-relaxed">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
-              <div className="pt-6 border-t border-[var(--border-light)]">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[var(--primary-light)]" />
-                  <div>
-                    <p className="font-medium text-[var(--text-primary)]">{testimonial.name}</p>
-                    <p className="text-xs text-[var(--text-secondary)]">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className={`mt-4 text-xs text-[var(--primary-dark)] font-medium ${isRTL ? '' : 'italic'}`}>
-                  {testimonial.transformation}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // Intro Offer Section
 function IntroOfferSection() {
   const { t, isRTL } = useLanguage();
@@ -1297,17 +1228,17 @@ function AppSection() {
                 {/* Mastercard */}
                 <div className="h-8 px-3 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
                   <svg viewBox="0 0 32 20" className="h-4 w-auto">
-                    <circle cx="11" cy="10" r="8" fill="#eb001b"/>
-                    <circle cx="21" cy="10" r="8" fill="#f79e1b"/>
-                    <path d="M16 3.5a8 8 0 0 0 0 13 8 8 0 0 0 0-13z" fill="#ff5f00"/>
+                    <circle cx="11" cy="10" r="8" fill="#eb001b" />
+                    <circle cx="21" cy="10" r="8" fill="#f79e1b" />
+                    <path d="M16 3.5a8 8 0 0 0 0 13 8 8 0 0 0 0-13z" fill="#ff5f00" />
                   </svg>
                 </div>
 
                 {/* Apple Pay */}
                 <div className="h-8 px-3 bg-black rounded-lg flex items-center justify-center">
                   <svg viewBox="0 0 50 20" className="h-4 w-auto" fill="white">
-                    <path d="M9.2 5.3C8.7 5.9 7.9 6.4 7.1 6.3C7 5.5 7.4 4.6 7.9 4C8.4 3.4 9.3 2.9 10 2.9C10.1 3.7 9.7 4.6 9.2 5.3ZM10 6.8C8.9 6.7 8 7.4 7.4 7.4C6.9 7.4 6.1 6.8 5.2 6.8C4.1 6.8 3.1 7.5 2.5 8.5C1.4 10.5 2.2 13.5 3.3 15.2C3.9 16 4.5 16.9 5.4 16.9C6.2 16.9 6.5 16.4 7.6 16.4C8.6 16.4 8.9 16.9 9.8 16.9C10.7 16.9 11.3 16.1 11.8 15.3C12.4 14.4 12.7 13.5 12.7 13.5C12.7 13.5 10.9 12.8 10.9 10.7C10.9 8.9 12.3 8.1 12.4 8C11.5 6.7 10.1 6.6 10 6.8Z"/>
-                    <path d="M17.2 3.5V17H19.3V12.2H22.4C25.2 12.2 27.2 10.3 27.2 7.8C27.2 5.3 25.3 3.5 22.5 3.5H17.2ZM19.3 5.3H21.9C23.9 5.3 25 6.3 25 7.9C25 9.5 23.9 10.5 21.9 10.5H19.3V5.3ZM31.5 17.1C33 17.1 34.4 16.4 35 15.3H35.1V17H37V10.7C37 8.5 35.4 7.2 32.8 7.2C30.4 7.2 28.7 8.5 28.6 10.4H30.6C30.8 9.5 31.6 8.9 32.7 8.9C34 8.9 34.8 9.5 34.8 10.6V11.3L31.9 11.5C29.3 11.6 27.9 12.7 27.9 14.4C27.9 16.1 29.4 17.1 31.5 17.1ZM32.1 15.5C31 15.5 30.3 15 30.3 14.2C30.3 13.4 31 12.9 32.3 12.8L34.8 12.6V13.4C34.8 14.6 33.7 15.5 32.1 15.5ZM39.2 20C41.3 20 42.3 19.2 43.2 16.6L47 7.3H44.8L42.3 14.8H42.2L39.7 7.3H37.4L41.1 16.4L40.9 17C40.6 17.9 40.1 18.3 39.2 18.3C39 18.3 38.7 18.3 38.6 18.3V20C38.8 20 39.1 20 39.2 20Z"/>
+                    <path d="M9.2 5.3C8.7 5.9 7.9 6.4 7.1 6.3C7 5.5 7.4 4.6 7.9 4C8.4 3.4 9.3 2.9 10 2.9C10.1 3.7 9.7 4.6 9.2 5.3ZM10 6.8C8.9 6.7 8 7.4 7.4 7.4C6.9 7.4 6.1 6.8 5.2 6.8C4.1 6.8 3.1 7.5 2.5 8.5C1.4 10.5 2.2 13.5 3.3 15.2C3.9 16 4.5 16.9 5.4 16.9C6.2 16.9 6.5 16.4 7.6 16.4C8.6 16.4 8.9 16.9 9.8 16.9C10.7 16.9 11.3 16.1 11.8 15.3C12.4 14.4 12.7 13.5 12.7 13.5C12.7 13.5 10.9 12.8 10.9 10.7C10.9 8.9 12.3 8.1 12.4 8C11.5 6.7 10.1 6.6 10 6.8Z" />
+                    <path d="M17.2 3.5V17H19.3V12.2H22.4C25.2 12.2 27.2 10.3 27.2 7.8C27.2 5.3 25.3 3.5 22.5 3.5H17.2ZM19.3 5.3H21.9C23.9 5.3 25 6.3 25 7.9C25 9.5 23.9 10.5 21.9 10.5H19.3V5.3ZM31.5 17.1C33 17.1 34.4 16.4 35 15.3H35.1V17H37V10.7C37 8.5 35.4 7.2 32.8 7.2C30.4 7.2 28.7 8.5 28.6 10.4H30.6C30.8 9.5 31.6 8.9 32.7 8.9C34 8.9 34.8 9.5 34.8 10.6V11.3L31.9 11.5C29.3 11.6 27.9 12.7 27.9 14.4C27.9 16.1 29.4 17.1 31.5 17.1ZM32.1 15.5C31 15.5 30.3 15 30.3 14.2C30.3 13.4 31 12.9 32.3 12.8L34.8 12.6V13.4C34.8 14.6 33.7 15.5 32.1 15.5ZM39.2 20C41.3 20 42.3 19.2 43.2 16.6L47 7.3H44.8L42.3 14.8H42.2L39.7 7.3H37.4L41.1 16.4L40.9 17C40.6 17.9 40.1 18.3 39.2 18.3C39 18.3 38.7 18.3 38.6 18.3V20C38.8 20 39.1 20 39.2 20Z" />
                   </svg>
                 </div>
 
@@ -1602,7 +1533,7 @@ function Footer() {
               </a>
               <a href="https://wa.me/966550614150" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
               </a>
             </div>
@@ -1612,9 +1543,9 @@ function Footer() {
           <div>
             <h4 className="font-medium mb-4">{t.footer.studio}</h4>
             <ul className="space-y-3 text-white/60 text-sm">
-            <li><a href="#studio" className="hover:text-white transition-colors">{t.footer.gallery}</a></li>
+              <li><a href="#studio" className="hover:text-white transition-colors">{t.footer.gallery}</a></li>
               <li><a href="#classes" className="hover:text-white transition-colors">{t.footer.classes}</a></li>
-              
+
               <li><a href="#gift" className="hover:text-white transition-colors">{t.footer.giftCards}</a></li>
             </ul>
           </div>
@@ -1685,13 +1616,10 @@ function Home() {
         <main>
           <Navigation />
           <HeroSection />
-
-          <StudioSection />
           <WellnessGiftSection />
+          <StudioSection />
           <PricingSection />
-          <TestimonialsSection />
           <AppSection />
-
           <LocationSection />
           <FinalCTASection />
           <ClassesSection />

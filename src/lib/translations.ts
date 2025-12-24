@@ -132,7 +132,7 @@ export const translations = {
       label: "Pricing",
       title: "Classes from",
       titleHighlight: "178",
-      subtitle: "New members get 10% off all packages. All packages valid for 3 months.",
+      subtitle: "New members get 10% off all packages.",
       viewPackages: "View all packages",
       recommended: "Recommended",
       perClass: "/class",
@@ -172,33 +172,6 @@ export const translations = {
       ],
     },
 
-    // Testimonials Section
-    testimonials: {
-      label: "Member Stories",
-      title: "What our",
-      titleHighlight: "members say",
-      list: [
-        {
-          quote: "I was so nervous on my first day, but the instructors made me feel comfortable immediately. Now I can't imagine my week without Pilatopia!",
-          name: "Sarah A.",
-          role: "Member since 2024",
-          transformation: "From nervous beginner to confident regular",
-        },
-        {
-          quote: "After 3 months, I noticed a huge difference in my posture and core strength. My back pain is almost gone. This studio changed my life.",
-          name: "Noura M.",
-          role: "Member since 2024",
-          transformation: "Goodbye back pain, hello strong core",
-        },
-        {
-          quote: "I was recovering from a shoulder injury and was scared to exercise. The trainers modified every move for me. Now I'm stronger than before my injury!",
-          name: "Lama K.",
-          role: "Member since 2024",
-          transformation: "From injury recovery to full strength",
-        },
-      ],
-    },
-
     // Location Section
     location: {
       label: "Find Us",
@@ -224,10 +197,6 @@ export const translations = {
         {
           question: "Is Pilates suitable for beginners?",
           answer: "Absolutely! Our instructors are trained to deliver exercises for all levels. We offer special beginner classes designed specifically to guide you step by step and introduce you to the fundamentals.",
-        },
-        {
-          question: "What is the Foundation class?",
-          answer: "The Foundation class is a required introductory session for all new members. It teaches you equipment basics, safety, and core Pilates principles. This class counts as one class from your package and must be completed before joining group classes.",
         },
         {
           question: "What age is appropriate for Pilates?",
@@ -341,49 +310,42 @@ export const translations = {
 
     // Classes Section
     classes: {
-      label: "كلاساتنا",
+      label: "كلاسات البيلاتس",
       title: "تنوع يضمن لك",
       titleHighlight: "النتائج والتقدم",
-      subtitle: "كلاساتنا تخدم جميع المستويات من تمارين مناسبة للمبتدئيات إلى المستويات المتقدمة",
+      subtitle: "كلاسات البيلاتس تخدم جميع المستويات من تمارين مناسبة للمبتدئيات إلى المستويات المتقدمة",
       viewSchedule: "عرض جدول الكلاسات الكامل",
-      perfectFor: "مثالي لـ:",
       duration: "دقيقة",
       classList: [
         {
           name: "الأساسي",
-          description: "مقدمتك الأساسية لجهاز الريفورمر. تعلمي أساسيات المعدات والسلامة والمبادئ الأساسية في هذه الجلسة. مطلوبة لجميع العضوات الجدد.",
+          description: "مقدمتك الأساسية لجهاز الريفورمر. تعلمي أساسيات المعدات والسلامة والمبادئ الأساسية.",
           level: "مطلوب",
-          perfect: "جميع العضوات الجدد",
         },
         {
           name: "ريفورمر للمبتدئات",
-          description: "ابدئي رحلة تحولك. ابني القوة، حسّني الوضعية، وأتقني الحركات الأساسية في هذه الحصة المصممة بعناية للمبتدئات.",
+          description: "ابدئي رحلة مع البيلاتس من هذا الكلاس. ابني القوة وأتقني الحركات الأساسية.",
           level: "مبتدئ",
-          perfect: "المبتدئات الجدد",
         },
         {
           name: "ريفورمر متوسط",
-          description: "ارتقي بتمرينك. تحدّي نفسك مع تدفقات ديناميكية ومقاومة متزايدة وتنويعات متقدمة لنتائج أسرع وملموسة.",
+          description: "هنا بناخذك لمستوى جديد في البيلاتس. تحدّي نفسك مع حركة أكثر ومقاومة أعلى. بتشوفين معنا نتائج ملحوظة",
           level: "متوسط",
-          perfect: "المستعدات للتقدم",
         },
         {
           name: "جامب ريفورمر",
-          description: "بيلاتس كارديو عالي الكثافة. احرقي أقصى السعرات الحرارية مع تسلسلات القفز المتفجرة. غير مناسب للإصابات أو الحمل.",
+          description: "بيلاتس كارديو عالي الكثافة. احرقي أقصى السعرات الحرارية. غير مناسب للي عندهم إصابة أو للحوامل.",
           level: "متقدم",
-          perfect: "الباحثات عن تمرين مكثف",
         },
         {
           name: "تشيرز وبارلز",
-          description: "حصة معدات متخصصة. استهدفي العضلات العميقة، حسّني المرونة، وعززي التوازن باستخدام كرسي وندا وبرميل السلم.",
+          description: "تبين تجربتنا المختلفة عن الريفورمر. هنا بتشتغلين على جهازين لنحت الجسم وتقوية الCore وتمديد الظهر (العمود الفقري). ممتاز للي يقضون وقت طويل على المكتب أو الجوال",
           level: "جميع المستويات",
-          perfect: "الباحثات عن التنوع",
         },
         {
           name: "كاديلاك ميكس",
-          description: "تمارين مخصصة على نظام برج الكاديلاك، مصممة لتناسب مستوى لياقتك وأهدافك.",
+          description: "تمارين مخصصة على نظام الكاديلاك تاور، مصممة لتناسب مستوى لياقتك وأهدافك.",
           level: "جميع المستويات",
-          perfect: "التدريب المخصص",
         },
       ],
     },
@@ -392,7 +354,7 @@ export const translations = {
     studio: {
       label: "استوديو بيلاتوبيا",
       title: "تفاصيل صغيرة … تصنع فرق",
-      titleHighlight: "كبير",
+      titleHighlight: "",
       subtitle: `
        صممنا لك عالم يتجاوز حدود التمرين من ترحيب الاستقبال وخزانة خاصة لمقتنياتك إلى كلاس على الريفورمر أو 
       تشيرز وبارلز وبعدها … ماتشا أو قهوة مختصة في اللاونج
@@ -419,7 +381,7 @@ export const translations = {
         "جوارب بيلاتس",
         "مفاجآت أخرى",
         "دفتر الأختام من بيلاتوبيا"
-        
+
       ],
       cta: "اهديها اليوم",
     },
@@ -451,11 +413,11 @@ export const translations = {
       label: "الأسعار",
       title: "الكلاس يبدأ من",
       titleHighlight: "178",
-      subtitle: "خصم 10% للمشتركات الجدد على جميع الباقات. جميع الباقات صالحة لمدة 3 أشهر.",
+      subtitle: "خصم 10% للمشتركات الجدد على جميع الباقات.",
       viewPackages: "عرض جميع الباقات",
       recommended: "ننصح بها",
       perClass: "/كلاس",
-      classes: "كلاس",
+      classes: "كلاسات",
       off: "خصم 10%",
       packages: [
         {
@@ -491,32 +453,6 @@ export const translations = {
       ],
     },
 
-    // Testimonials Section
-    testimonials: {
-      label: "قصص عضواتنا",
-      title: "ماذا تقول",
-      titleHighlight: "عضواتنا",
-      list: [
-        {
-          quote: "كنت متوترة جداً في أول يوم، لكن المدربات خلوني أحس بالراحة من أول لحظة. الحين ما أقدر أتخيل أسبوعي بدون بيلاتوبيا!",
-          name: "سارة أ.",
-          role: "عضوة منذ 2024",
-          transformation: "من مبتدئة متوترة إلى عضوة واثقة",
-        },
-        {
-          quote: "بعد 3 شهور، لاحظت فرق كبير في وقفتي وقوة عضلات البطن. آلام ظهري تقريباً راحت. هذا الاستوديو غيّر حياتي.",
-          name: "نورة م.",
-          role: "عضوة منذ 2024",
-          transformation: "وداعاً آلام الظهر، أهلاً بالقوة",
-        },
-        {
-          quote: "كنت أتعافى من إصابة في الكتف وكنت خايفة أتمرن. المدربات عدّلوا كل حركة لحالتي. الحين أنا أقوى من قبل الإصابة!",
-          name: "لمى ك.",
-          role: "عضوة منذ 2024",
-          transformation: "من التعافي من الإصابة إلى القوة الكاملة",
-        },
-      ],
-    },
 
     // Location Section
     location: {
@@ -544,10 +480,6 @@ export const translations = {
         {
           question: "هل البيلاتس مناسب للمبتدئات؟",
           answer: "طبعًا. مدرباتنا مدربات على تقديم التمارين لجميع المستويات. ونقدم كلاسات خاصة للمبتدئات مصممة خصيصًا عشان تأخذك خطوة بخطوة وتعرفك بالأساسيات",
-        },
-        {
-          question: "ما هو كلاس الأساسي (Foundation)؟",
-          answer: "كلاس الأساسي هو جلسة تعريفية مطلوبة لجميع العضوات الجدد. يعلمك أساسيات الأجهزة والسلامة ومبادئ البيلاتس الأساسية. هذا الكلاس يُحتسب من رصيد باقتك ولازم تكملينه قبل الانضمام للكلاسات الجماعية.",
         },
         {
           question: "ما العمر المناسب لممارسة البيلاتس؟",
@@ -580,6 +512,10 @@ export const translations = {
         {
           question: "ما هي سياسة الإلغاء؟",
           answer: "بإمكانك الإلغاء أو إعادة الجدولة حتى 6 ساعات قبل الكلاس لاسترداد كامل الرصيد. الإلغاء المتأخر أو عدم الحضور سيُحتسب برسوم الكلاس الكاملة.",
+        },
+        {
+          question: "ما هي ساعات العمل؟",
+          answer: "بيلاتوبيا يرحب بك في ساعات العمل: السبت - الخميس: 2 مساءً - 10 مساءً أما الجمعة: مغلق (قريبًا الافتتاح يوم الجمعة)",
         },
       ],
     },
