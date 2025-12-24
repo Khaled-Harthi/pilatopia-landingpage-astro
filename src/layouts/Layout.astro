@@ -352,7 +352,11 @@ const structuredData = {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-0QH8NQR7MJ");
+      gtag("config", "G-0QH8NQR7MJ", {
+        send_page_view: true,
+        allow_google_signals: true,
+        cookie_flags: "SameSite=None;Secure"
+      });
     </script>
 
     <!-- TikTok Pixel -->
