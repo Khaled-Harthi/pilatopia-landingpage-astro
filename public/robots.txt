@@ -1,0 +1,11 @@
+# Pilatopia - Pilates Studio in Al Narjis, Riyadh
+# https://pilatopia.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://pilatopia.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
