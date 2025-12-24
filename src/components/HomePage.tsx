@@ -369,11 +369,8 @@ function HeroSection() {
               variants={fadeInUp}
               className="mb-8"
             >
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--primary)]/10 text-[var(--primary-dark)] text-xs font-medium rounded-full">
-                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M12 12c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4z" />
-                </svg>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#E39C82]/10 text-[#E39C82] text-xs font-medium rounded-full">
+                <span className="text-sm">🌸</span>
                 {isRTL ? 'استوديو نسائي' : 'Women-Only Studio'}
               </span>
             </motion.div>
