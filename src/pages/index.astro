@@ -80,9 +80,10 @@ const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
     <MembershipModal client:idle lang={lang} />
   </main>
 
-  <!-- Section View Tracking -->
+  <!-- Analytics Tracking -->
   <script is:inline>
     (function() {
+      // Section View Tracking
       const trackedSections = new Set();
 
       const observer = new IntersectionObserver((entries) => {
@@ -91,11 +92,9 @@ const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
             const sectionName = entry.target.dataset.section;
             const sectionId = entry.target.id;
 
-            // Only track each section once per page load
             if (sectionName && !trackedSections.has(sectionId)) {
               trackedSections.add(sectionId);
 
-              // Send to GA4
               if (typeof gtag === 'function') {
                 gtag('event', 'section_view', {
                   section_name: sectionName,
@@ -106,12 +105,60 @@ const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
           }
         });
       }, {
-        threshold: 0.5 // Trigger when 50% of section is visible
+        threshold: 0.5
       });
 
-      // Observe all sections with data-section attribute
       document.querySelectorAll('[data-section]').forEach((section) => {
         observer.observe(section);
+      });
+
+      // Outbound Link Click Tracking
+      document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+
+        const href = link.href;
+        if (typeof gtag !== 'function') return;
+
+        // WhatsApp clicks
+        if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+          gtag('event', 'whatsapp_click', {
+            link_url: href,
+            link_location: link.closest('[data-section]')?.dataset.section || 'unknown'
+          });
+        }
+
+        // App Store clicks
+        if (href.includes('apps.apple.com')) {
+          gtag('event', 'app_store_click', {
+            link_url: href,
+            link_location: link.closest('[data-section]')?.dataset.section || 'unknown'
+          });
+        }
+
+        // Google Maps clicks
+        if (href.includes('google.com/maps') || href.includes('maps.app.goo.gl')) {
+          gtag('event', 'maps_click', {
+            link_url: href,
+            link_location: link.closest('[data-section]')?.dataset.section || 'unknown'
+          });
+        }
+
+        // Phone calls
+        if (href.startsWith('tel:')) {
+          gtag('event', 'phone_click', {
+            phone_number: href.replace('tel:', ''),
+            link_location: link.closest('[data-section]')?.dataset.section || 'unknown'
+          });
+        }
+
+        // Email clicks
+        if (href.startsWith('mailto:')) {
+          gtag('event', 'email_click', {
+            email_address: href.replace('mailto:', ''),
+            link_location: link.closest('[data-section]')?.dataset.section || 'unknown'
+          });
+        }
       });
     })();
   </script>
