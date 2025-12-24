@@ -27,7 +27,7 @@ export const translations = {
       label: "Our Classes",
       title: "Find your perfect",
       titleHighlight: "practice",
-      subtitle: "From beginner-friendly mat sessions to challenging reformer workouts, discover the class that aligns with your goals.",
+      subtitle: "From beginner sessions to challenging reformer workouts, discover the class that aligns with your goals.",
       viewSchedule: "View full class schedule",
       perfectFor: "Perfect for:",
       duration: "min",
@@ -74,15 +74,15 @@ export const translations = {
     // Studio Section
     studio: {
       label: "Our Space",
-      title: "Step into",
-      titleHighlight: "serenity",
-      subtitle: "A thoughtfully designed sanctuary where every detail—from the lighting to the equipment—supports your practice.",
+      title: "Small details ... make a big",
+      titleHighlight: "difference",
+      subtitle: "We’ve designed a world for you that transcends the workout, from our warm welcome and your private locker, to a session on the Reformer or Chairs & Barrels, followed by a matcha or specialty coffee in the lounge",
       images: [
         { label: "Reformer Studio", description: "State-of-the-art equipment", image: "/reformer-room.jpg" },
         { label: "Reception", description: "Warm welcome awaits", image: "/reception.jpg" },
-        { label: "Matcha Lounge", description: "Matcha & specialty coffee", image: "/cafe.jpg" },
-        { label: "Chairs & Barrels", description: "Strength & sculpting", image: "/chairs-room.jpg" },
-        { label: "Lockers", description: "Privacy & security", image: "/lockers.jpg" },
+        { label: "Matcha Lounge", description: "Matcha & Specialty Coffee", image: "/cafe.jpg" },
+        { label: "Chairs & Barrels", description: "Strength & Sculpting", image: "/chairs-room.jpg" },
+        { label: "Lockers", description: "Privacy & Security", image: "/lockers.jpg" },
       ],
     },
 
@@ -118,11 +118,11 @@ export const translations = {
       label: "The Pilatopia App",
       title: "Book in",
       titleHighlight: "seconds",
-      subtitle: "Manage your entire Pilates journey from one beautiful app. Book classes, track progress, and earn rewards with every session.",
+      subtitle: "Your experience must be perfect from start to finish. Book classes, and manage your membership with ease.",
       features: [
         "Easy class booking & scheduling",
-        "Track your attendance & progress",
         "Earn points with every class",
+        "Manage your membership with ease - we support all payment methods",
       ],
       bookNext: "Book your next class",
     },
@@ -176,7 +176,7 @@ export const translations = {
     location: {
       label: "Find Us",
       title: "Visit our studio",
-      address: "Address",
+      address: "Pilatopia Studio",
       addressValue: "Al Narjis District\nRiyadh, Saudi Arabia",
       addressArabic: "حي النرجس",
       hours: "Hours",
@@ -235,9 +235,9 @@ export const translations = {
 
     // Final CTA Section
     cta: {
-      title: "Begin your",
-      titleHighlight: "transformation",
-      subtitle: "Your journey to a stronger, more balanced you starts with a single class. We can't wait to welcome you.",
+      title: "Having second",
+      titleHighlight: "thoughts?",
+      subtitle: "Let's talk. Our team is ready to answer all of your questions, and help you get started with Pilates.",
       button: "Become a Member",
     },
 
@@ -263,12 +263,12 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: "Where movement meets mindfulness. Your Pilates sanctuary in Al Narjis, Riyadh.",
+      tagline: "Your Pilates Utopia. Your Pilates studio in Al Narjis, Riyadh.",
       studio: "Studio",
       ourExperience: "Our Experience",
-      classes: "Classes",
-      gallery: "Gallery",
-      giftCards: "Gift Cards",
+      classes: "Our Classes",
+      gallery: "Our Space",
+      giftCards: "Pilatopia Gift",
       support: "Support",
       faq: "FAQ",
       privacy: "Privacy Policy",
@@ -301,7 +301,7 @@ export const translations = {
     hero: {
       welcome: "في بيلاتوبيا",
       title1: "بيلاتس في مكان يشبهك",
-      subtitle: "حياك في أستوديو بيلاتوبيا في حي النرجس، الرياض تعالي واكتشفي قوة وأثر البيلاتس. كل جلسة هي خطوة  لنسخة منك تحبينها أكثر.",
+      subtitle: "حياك في أستوديو بيلاتوبيا في حي النرجس في الرياض تعالي واكتشفي قوة وأثر البيلاتس. كل جلسة هي خطوة  لنسخة منك تحبينها أكثر",
       bookFirst: "احجزي كلاسك الأول",
       explore: "استكشفي الاستوديو",
       members: "عضوة",
