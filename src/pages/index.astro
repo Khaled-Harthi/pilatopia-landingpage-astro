@@ -29,31 +29,49 @@ const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
     <Navigation client:load lang={lang} />
 
     <!-- Hero: client:load for immediate animations and class carousel -->
-    <HeroSection client:load lang={lang} />
+    <div id="hero" data-section="Hero">
+      <HeroSection client:load lang={lang} />
+    </div>
 
     <!-- Gift Section: client:visible (has occasion rotation animation) -->
-    <GiftSection client:visible lang={lang} />
+    <div id="gift" data-section="Gift">
+      <GiftSection client:visible lang={lang} />
+    </div>
 
     <!-- Studio Gallery: Static Astro (no JS needed) -->
-    <StudioSection lang={lang} />
+    <div id="studio" data-section="Studio">
+      <StudioSection lang={lang} />
+    </div>
 
     <!-- Pricing: client:visible (has collapsible packages) -->
-    <PricingSection client:visible lang={lang} />
+    <div id="pricing" data-section="Pricing">
+      <PricingSection client:visible lang={lang} />
+    </div>
 
     <!-- App Section: Static Astro (no JS needed) -->
-    <AppSection lang={lang} />
+    <div id="mobile-app" data-section="Mobile App">
+      <AppSection lang={lang} />
+    </div>
 
     <!-- Location: Static Astro (Google Maps embed, no JS needed) -->
-    <LocationSection lang={lang} />
+    <div id="location" data-section="Location">
+      <LocationSection lang={lang} />
+    </div>
 
     <!-- CTA: Static Astro (no JS needed) -->
-    <CTASection lang={lang} />
+    <div id="cta" data-section="CTA">
+      <CTASection lang={lang} />
+    </div>
 
     <!-- Classes: Static Astro (no JS needed) -->
-    <ClassesSection lang={lang} />
+    <div id="classes" data-section="Classes">
+      <ClassesSection lang={lang} />
+    </div>
 
     <!-- FAQ: client:visible (has accordion) -->
-    <FAQSection client:visible lang={lang} />
+    <div id="faq" data-section="FAQ">
+      <FAQSection client:visible lang={lang} />
+    </div>
 
     <!-- Footer: Static Astro (no JS needed) -->
     <Footer lang={lang} />
@@ -61,4 +79,40 @@ const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
     <!-- Membership Modal: client:idle (only hydrate when browser is idle) -->
     <MembershipModal client:idle lang={lang} />
   </main>
+
+  <!-- Section View Tracking -->
+  <script is:inline>
+    (function() {
+      const trackedSections = new Set();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionName = entry.target.dataset.section;
+            const sectionId = entry.target.id;
+
+            // Only track each section once per page load
+            if (sectionName && !trackedSections.has(sectionId)) {
+              trackedSections.add(sectionId);
+
+              // Send to GA4
+              if (typeof gtag === 'function') {
+                gtag('event', 'section_view', {
+                  section_name: sectionName,
+                  section_id: sectionId
+                });
+              }
+            }
+          }
+        });
+      }, {
+        threshold: 0.5 // Trigger when 50% of section is visible
+      });
+
+      // Observe all sections with data-section attribute
+      document.querySelectorAll('[data-section]').forEach((section) => {
+        observer.observe(section);
+      });
+    })();
+  </script>
 </Layout>
