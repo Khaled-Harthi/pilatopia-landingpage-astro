@@ -352,11 +352,32 @@ const structuredData = {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-0QH8NQR7MJ", {
+
+      // Parse UTM parameters from URL
+      var urlParams = new URLSearchParams(window.location.search);
+      var campaignParams = {};
+
+      if (urlParams.get('utm_source')) {
+        campaignParams.campaign_source = urlParams.get('utm_source');
+      }
+      if (urlParams.get('utm_medium')) {
+        campaignParams.campaign_medium = urlParams.get('utm_medium');
+      }
+      if (urlParams.get('utm_campaign')) {
+        campaignParams.campaign_name = urlParams.get('utm_campaign');
+      }
+      if (urlParams.get('utm_term')) {
+        campaignParams.campaign_term = urlParams.get('utm_term');
+      }
+      if (urlParams.get('utm_content')) {
+        campaignParams.campaign_content = urlParams.get('utm_content');
+      }
+
+      gtag("config", "G-0QH8NQR7MJ", Object.assign({
         send_page_view: true,
         allow_google_signals: true,
         cookie_flags: "SameSite=None;Secure"
-      });
+      }, campaignParams));
     </script>
 
     <!-- TikTok Pixel -->
