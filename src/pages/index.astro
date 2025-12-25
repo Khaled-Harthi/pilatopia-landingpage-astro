@@ -16,9 +16,9 @@ import FAQSection from '../components/sections/FAQSection.astro';
 import Footer from '../components/sections/Footer.astro';
 import MembershipModal from '../components/sections/MembershipModal.astro';
 
-// Read language from cookie, default to 'en'
+// Read language from cookie, default to 'ar'
 const langCookie = Astro.cookies.get('pilatopia-lang');
-const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
+const lang: Language = (langCookie?.value === 'en' ? 'en' : 'ar') as Language;
 ---
 
 <Layout lang={lang}>

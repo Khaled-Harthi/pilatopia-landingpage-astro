@@ -17,7 +17,15 @@ const isRTL = lang === 'ar';
       <!-- Brand -->
       <div class="md:col-span-1">
         <div class="mb-4">
-          <img src="/pilatopia-logo.png" alt="Pilatopia" class="h-6 w-auto brightness-0 invert" loading="lazy" />
+          <img
+          src="/pilatopia-logo.webp"
+          srcset="/pilatopia-logo.webp 1x, /pilatopia-logo@2x.webp 2x"
+          alt="Pilatopia"
+          class="h-6 w-auto brightness-0 invert"
+          width="147"
+          height="24"
+          loading="lazy"
+        />
         </div>
         <p class="text-white/60 text-sm mb-6 leading-relaxed">
           {t.footer.tagline}
@@ -69,7 +77,7 @@ const isRTL = lang === 'ar';
             <svg class="w-[14px] h-[14px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
-            <a href="mailto:jawaher@pilatopia.studio" class="hover:text-white transition-colors">jawaher@pilatopia.studio</a>
+            <a href="#" class="email-link hover:text-white transition-colors" data-user="jawaher" data-domain="pilatopia.studio"></a>
           </li>
           <li class="flex items-center gap-2">
             <svg class="w-[14px] h-[14px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -103,3 +111,16 @@ const isRTL = lang === 'ar';
     </div>
   </div>
 </footer>
+
+<script>
+  // Construct email at runtime to prevent Cloudflare email obfuscation
+  document.querySelectorAll('.email-link').forEach(link => {
+    const user = link.getAttribute('data-user');
+    const domain = link.getAttribute('data-domain');
+    if (user && domain) {
+      const email = user + '@' + domain;
+      link.setAttribute('href', 'mailto:' + email);
+      link.textContent = email;
+    }
+  });
+</script>

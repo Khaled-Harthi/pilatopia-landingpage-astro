@@ -295,8 +295,7 @@ const structuredData = {
       content="Step into our women-only Pilates studio in Al Narjis, Riyadh and discover the transformative power of Pilates. Every session is a step toward the better you."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ar_SA" />
+    <meta property="og:locale" content="ar_SA" />
     <meta property="og:site_name" content="Pilatopia" />
     <meta property="og:url" content="https://pilatopia.studio" />
     <meta
@@ -325,8 +324,6 @@ const structuredData = {
 
     <!-- Canonical -->
     <link rel="canonical" href="https://pilatopia.studio" />
-    <link rel="alternate" hreflang="en" href="https://pilatopia.studio" />
-    <link rel="alternate" hreflang="ar" href="https://pilatopia.studio/ar" />
 
     <!-- Robots -->
     <meta name="robots" content="index, follow" />
@@ -338,15 +335,36 @@ const structuredData = {
     <!-- Preload critical fonts -->
     <link rel="preload" href="/fonts/rufina-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/ibm-plex-arabic-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-arabic-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-arabic-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-arabic-700.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QH8NQR7MJ"
-    ></script>
+    <!-- Analytics stubs (queues events until full scripts load) -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      function gtag(){dataLayer.push(arguments);}
+      window.ttq = window.ttq || [];
+    </script>
+
+    <!-- Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+
+    <style>
+      :root {
+        --font-rufina: "Rufina", Georgia, serif;
+        --font-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
       }
+    </style>
+  </head>
+  <body class="antialiased" style="font-family: var(--font-body);">
+    <slot />
+
+    <!-- Google Analytics 4 (deferred to end of body) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QH8NQR7MJ"></script>
+    <script is:inline>
       gtag("js", new Date());
 
       // Parse UTM parameters from URL
@@ -376,7 +394,7 @@ const structuredData = {
       }, campaignParams));
     </script>
 
-    <!-- TikTok Pixel -->
+    <!-- TikTok Pixel (deferred to end of body) -->
     <script is:inline>
       !(function (w, d, t) {
         w.TiktokAnalyticsObject = t;
@@ -432,21 +450,5 @@ const structuredData = {
         ttq.page();
       })(window, document, "ttq");
     </script>
-
-    <!-- Structured Data -->
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
-    />
-
-    <style>
-      :root {
-        --font-rufina: "Rufina", Georgia, serif;
-        --font-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
-      }
-    </style>
-  </head>
-  <body class="antialiased" style="font-family: var(--font-body);">
-    <slot />
   </body>
 </html>
