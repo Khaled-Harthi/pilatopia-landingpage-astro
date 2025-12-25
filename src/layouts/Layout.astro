@@ -335,13 +335,9 @@ const structuredData = {
       content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
     />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Rufina:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/fonts/rufina-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/ibm-plex-arabic-400.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QH8NQR7MJ"
