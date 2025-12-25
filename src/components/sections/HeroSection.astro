@@ -1,0 +1,273 @@
+---
+import { Image } from 'astro:assets';
+import type { Language } from '@/lib/translations';
+import { translations } from '@/lib/translations';
+
+import reformerVertical from '@/assets/reformer-vertical.jpg';
+import chairsVertical from '@/assets/chairs-vertical.jpg';
+import midArea from '@/assets/mid-area.jpg';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+const isRTL = lang === 'ar';
+
+const classTypes = isRTL
+  ? ["ريفورمر للمبتدئات", "ريفورمر متوسط", "جامب ريفورمر", "كاديلاك ميكس", "تشيرز وبارلز"]
+  : ["Beginners Reformer", "Intermediate Reformer", "Jump Reformer", "Cadillac Mix", "Chairs & Barrels"];
+---
+
+<section class="relative min-h-screen flex items-center bg-[var(--bg-cream)]/30 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32 w-full">
+    <div class={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${isRTL ? 'direction-rtl' : ''}`}>
+      <!-- Text Content -->
+      <div class={`hero-content ${isRTL ? 'lg:order-2' : ''}`}>
+        <div class="mb-4 animate-hero" style="--delay: 0s">
+          <p class="text-[var(--primary-dark)] font-medium tracking-wide text-sm uppercase">
+            {t.hero.welcome}
+          </p>
+        </div>
+
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-medium text-[var(--text-primary)] leading-[1.1] mb-6 animate-hero"
+          style={`font-family: ${isRTL ? 'var(--font-body)' : 'var(--font-rufina), Georgia, serif'}; --delay: 0.15s`}
+        >
+          {t.hero.title1}
+        </h1>
+
+        <p class="text-lg text-[var(--text-secondary)] mb-6 max-w-lg leading-relaxed animate-hero" style="--delay: 0.3s">
+          {t.hero.subtitle}
+        </p>
+
+        <div class="mb-8 animate-hero" style="--delay: 0.45s">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#E39C82]/10 text-[#E39C82] text-xs font-medium rounded-full">
+            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15" />
+              <circle cx="12" cy="12" r="3" />
+              <path d="m8 16 1.5-1.5" />
+              <path d="M14.5 9.5 16 8" />
+              <path d="m8 8 1.5 1.5" />
+              <path d="M14.5 14.5 16 16" />
+            </svg>
+            {isRTL ? 'استوديو نسائي' : 'Women-Only Studio'}
+          </span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 animate-hero" style="--delay: 0.6s">
+          <button
+            class="membership-btn inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--primary)] text-white font-semibold rounded-full hover:bg-[var(--primary-dark)] transition-all group"
+          >
+            {t.cta.button}
+            {isRTL ? (
+              <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            ) : (
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            )}
+          </button>
+          <a
+            href="#studio"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[var(--border)] text-[var(--text-primary)] font-semibold rounded-full hover:bg-white transition-all"
+          >
+            {t.hero.explore}
+          </a>
+        </div>
+      </div>
+
+      <!-- Bento Grid Images -->
+      <div class={`hero-images relative ${isRTL ? 'lg:order-1' : ''}`}>
+        <div class="grid grid-cols-3 gap-4 h-[500px] lg:h-[600px]">
+          <!-- Main large image - spans 2 columns -->
+          <div class="col-span-2 row-span-2 relative rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
+            <Image
+              src={reformerVertical}
+              alt="Reformers Room"
+              class="w-full h-full object-cover"
+              widths={[400, 800, 1200]}
+              sizes="(max-width: 768px) 100vw, 66vw"
+              format="webp"
+              quality={80}
+            />
+            <!-- Floating badge -->
+            <div class={`absolute bottom-8 ${isRTL ? 'right-4' : 'left-4'}`}>
+              <p class="text-sm text-white mb-1">{isRTL ? 'الكلاس القادم' : 'Next Class'}</p>
+              <div class="class-carousel relative h-8 w-56 sm:w-64">
+                {classTypes.map((classType, index) => (
+                  <p
+                    class="class-item font-semibold text-2xl text-white absolute inset-0 whitespace-nowrap"
+                    data-index={index}
+                    style="text-shadow: 0 2px 4px rgba(0,0,0,0.3)"
+                  >
+                    {classType}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Top small image -->
+          <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-black/5">
+            <Image
+              src={chairsVertical}
+              alt="Chairs & Barrels Room"
+              class="w-full h-full object-cover"
+              widths={[200, 400]}
+              sizes="(max-width: 768px) 33vw, 20vw"
+              format="webp"
+              quality={80}
+            />
+          </div>
+
+          <!-- Bottom small image -->
+          <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-black/5">
+            <Image
+              src={midArea}
+              alt="Lounge Area"
+              class="w-full h-full object-cover"
+              widths={[200, 400]}
+              sizes="(max-width: 768px) 33vw, 20vw"
+              format="webp"
+              quality={80}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2">
+    <div class="scroll-mouse w-6 h-10 border-2 border-[var(--text-secondary)]/30 rounded-full flex justify-center pt-2">
+      <div class="scroll-dot w-1 h-2 bg-[var(--text-secondary)]/50 rounded-full" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-hero {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeUp 0.7s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .hero-images {
+    opacity: 0;
+    animation: heroSlideIn 0.8s ease-out 0.3s forwards;
+  }
+
+  @keyframes heroFadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes heroSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  [dir="rtl"] .hero-images,
+  .direction-rtl .hero-images {
+    animation-name: heroSlideInRTL;
+  }
+
+  @keyframes heroSlideInRTL {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Class carousel */
+  .class-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+  }
+
+  .class-item.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .class-item.exit {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 1.5s forwards;
+  }
+
+  .scroll-dot {
+    animation: scrollBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+</style>
+
+<script define:vars={{ classCount: classTypes.length }}>
+  // Membership button
+  document.querySelectorAll('.membership-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('open-membership'));
+    });
+  });
+
+  // Class carousel
+  let currentClassIndex = 0;
+  const classItems = document.querySelectorAll('.class-item');
+
+  function showNextClass() {
+    classItems.forEach((item, i) => {
+      item.classList.remove('active', 'exit');
+      if (i === currentClassIndex) {
+        item.classList.add('exit');
+      }
+    });
+
+    currentClassIndex = (currentClassIndex + 1) % classCount;
+
+    setTimeout(() => {
+      classItems.forEach((item, i) => {
+        item.classList.remove('exit');
+        if (i === currentClassIndex) {
+          item.classList.add('active');
+        }
+      });
+    }, 50);
+  }
+
+  // Initialize first item
+  if (classItems[0]) classItems[0].classList.add('active');
+
+  // Rotate every 3 seconds
+  setInterval(showNextClass, 3000);
+</script>

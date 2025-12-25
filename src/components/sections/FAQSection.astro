@@ -1,0 +1,95 @@
+---
+import type { Language } from '@/lib/translations';
+import { translations } from '@/lib/translations';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+const isRTL = lang === 'ar';
+---
+
+<section class="section-padding bg-white">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 animate-on-scroll">
+      <p class="text-[var(--primary-dark)] font-medium mb-3 tracking-wide text-sm uppercase">
+        {t.faq.label}
+      </p>
+      <h2
+        class="text-4xl sm:text-5xl font-medium text-[var(--text-primary)] mb-4"
+        style={`font-family: ${isRTL ? 'var(--font-body)' : 'var(--font-rufina), Georgia, serif'}`}
+      >
+        {t.faq.title} <span class={isRTL ? '' : 'italic'}>{t.faq.titleHighlight}</span>
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      {t.faq.list.map((faq, index) => (
+        <details
+          class="faq-item border border-[var(--border-light)] rounded-2xl overflow-hidden group"
+          style={`--delay: ${index * 0.05}s`}
+        >
+          <summary
+            class={`flex items-center justify-between p-6 ${isRTL ? 'text-right' : 'text-left'} bg-white hover:bg-[var(--bg-section)] transition-colors cursor-pointer list-none`}
+          >
+            <span class={`font-medium text-[var(--text-primary)] ${isRTL ? 'pl-4' : 'pr-4'}`}>{faq.question}</span>
+            <svg
+              class="faq-chevron flex-shrink-0 w-5 h-5 text-[var(--text-secondary)] transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="faq-answer px-6 pb-6 text-[var(--text-secondary)] leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item {
+    animation: fadeInUp 0.6s ease-out both;
+    animation-delay: var(--delay);
+  }
+
+  details[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-answer {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -1,0 +1,174 @@
+---
+import type { Language } from '@/lib/translations';
+import { translations } from '@/lib/translations';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+---
+
+<nav class="nav-container fixed top-0 left-0 right-0 z-50 glass">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center">
+        <img src="/pilatopia-logo.png" alt="Pilatopia" class="h-5 w-auto" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-10">
+        <a href="#studio" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
+          {t.nav.studio}
+        </a>
+        <a href="#gift" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
+          {t.nav.gift}
+        </a>
+        <a href="#pricing" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
+          {t.nav.prices}
+        </a>
+        <a href="#classes" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
+          {t.nav.classes}
+        </a>
+        <a href="#mobile-app" class="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm">
+          {t.nav.app}
+        </a>
+      </div>
+
+      <!-- CTA and Language Toggle -->
+      <div class="hidden lg:flex items-center gap-4">
+        <button
+          id="lang-toggle-desktop"
+          class="flex items-center gap-2 px-4 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+          </svg>
+          {t.language.switch}
+        </button>
+        <button
+          class="membership-btn inline-flex items-center gap-2 px-6 py-3 bg-[var(--primary)] text-white text-sm font-semibold rounded-full hover:bg-[var(--primary-dark)] transition-all"
+        >
+          {t.nav.joinUs}
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex lg:hidden items-center gap-2">
+        <button
+          id="lang-toggle-mobile"
+          class="p-2 text-sm font-medium"
+        >
+          {t.language.switch}
+        </button>
+        <button
+          id="mobile-menu-btn"
+          class="p-2"
+          aria-label="Toggle menu"
+        >
+          <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t hidden">
+    <div class="px-6 py-6 space-y-4">
+      <a href="#studio" class="mobile-link block py-2 text-[var(--text-primary)]">{t.nav.studio}</a>
+      <a href="#gift" class="mobile-link block py-2 text-[var(--text-primary)]">{t.nav.gift}</a>
+      <a href="#pricing" class="mobile-link block py-2 text-[var(--text-primary)]">{t.nav.prices}</a>
+      <a href="#classes" class="mobile-link block py-2 text-[var(--text-primary)]">{t.nav.classes}</a>
+      <a href="#mobile-app" class="mobile-link block py-2 text-[var(--text-primary)]">{t.nav.app}</a>
+      <button
+        class="membership-btn w-full mt-4 px-6 py-3 bg-[var(--primary)] text-white font-semibold rounded-full"
+      >
+        {t.nav.joinUs}
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-container {
+    animation: slideDown 0.6s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .mobile-menu:not(.hidden) {
+    display: block;
+  }
+</style>
+
+<script define:vars={{ currentLang: lang }}>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  let isOpen = false;
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    mobileMenu.classList.toggle('hidden', !isOpen);
+    mobileMenu.classList.toggle('open', isOpen);
+    menuIcon.classList.toggle('hidden', isOpen);
+    closeIcon.classList.toggle('hidden', !isOpen);
+  }
+
+  menuBtn?.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking a link
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isOpen) toggleMenu();
+    });
+  });
+
+  // Language toggle
+  function toggleLanguage() {
+    const newLang = currentLang === 'en' ? 'ar' : 'en';
+    document.cookie = `pilatopia-lang=${newLang};path=/;max-age=31536000`;
+    window.location.reload();
+  }
+
+  document.getElementById('lang-toggle-desktop')?.addEventListener('click', toggleLanguage);
+  document.getElementById('lang-toggle-mobile')?.addEventListener('click', toggleLanguage);
+
+  // Membership button
+  document.querySelectorAll('.membership-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (isOpen) toggleMenu();
+      window.dispatchEvent(new CustomEvent('open-membership'));
+    });
+  });
+</script>

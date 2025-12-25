@@ -1,6 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 import type { Language } from '@/lib/translations';
 import { translations } from '@/lib/translations';
+
+import appScreenshot from '@/assets/app-screenshot.png';
+import madaLogo from '@/assets/mada-logo.png';
+import visaLogo from '@/assets/visa.png';
+import mastercardLogo from '@/assets/mastercard.png';
+import applePayLogo from '@/assets/apple-pay.png';
+import tamaraLogo from '@/assets/tamara-logo.png';
 
 interface Props {
   lang: Language;
@@ -86,27 +94,20 @@ const appStoreLink = "https://apps.apple.com/us/app/pilatopia/id6747145107";
         <div class="mt-8 pt-6 border-t border-[var(--border-light)]">
           <p class="text-xs text-[var(--text-secondary)] mb-4">{isRTL ? 'طرق الدفع المدعومة' : 'Supported Payment Methods'}</p>
           <div class="flex flex-wrap items-center gap-2">
-            <div class="h-8 px-2 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
-              <img src="/mada-logo.png" alt="Mada" class="h-5 w-auto object-contain" loading="lazy" />
-            </div>
-            <div class="h-8 px-2 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
-              <img src="/visa-logo.png" alt="Visa" class="h-5 w-auto object-contain" loading="lazy" />
+            <div class="h-8 px-3 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <Image src={madaLogo} alt="Mada" class="h-4 w-auto object-contain" height={16} format="webp" quality={80} loading="lazy" />
             </div>
             <div class="h-8 px-3 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
-              <svg viewBox="0 0 32 20" class="h-4 w-auto">
-                <circle cx="11" cy="10" r="8" fill="#eb001b" />
-                <circle cx="21" cy="10" r="8" fill="#f79e1b" />
-                <path d="M16 3.5a8 8 0 0 0 0 13 8 8 0 0 0 0-13z" fill="#ff5f00" />
-              </svg>
+              <Image src={visaLogo} alt="Visa" class="h-3 w-auto object-contain" height={12} format="webp" quality={80} loading="lazy" />
             </div>
-            <div class="h-8 px-3 bg-black rounded-lg flex items-center justify-center">
-              <svg viewBox="0 0 50 20" class="h-4 w-auto" fill="white">
-                <path d="M9.2 5.3C8.7 5.9 7.9 6.4 7.1 6.3C7 5.5 7.4 4.6 7.9 4C8.4 3.4 9.3 2.9 10 2.9C10.1 3.7 9.7 4.6 9.2 5.3ZM10 6.8C8.9 6.7 8 7.4 7.4 7.4C6.9 7.4 6.1 6.8 5.2 6.8C4.1 6.8 3.1 7.5 2.5 8.5C1.4 10.5 2.2 13.5 3.3 15.2C3.9 16 4.5 16.9 5.4 16.9C6.2 16.9 6.5 16.4 7.6 16.4C8.6 16.4 8.9 16.9 9.8 16.9C10.7 16.9 11.3 16.1 11.8 15.3C12.4 14.4 12.7 13.5 12.7 13.5C12.7 13.5 10.9 12.8 10.9 10.7C10.9 8.9 12.3 8.1 12.4 8C11.5 6.7 10.1 6.6 10 6.8Z" />
-                <path d="M17.2 3.5V17H19.3V12.2H22.4C25.2 12.2 27.2 10.3 27.2 7.8C27.2 5.3 25.3 3.5 22.5 3.5H17.2ZM19.3 5.3H21.9C23.9 5.3 25 6.3 25 7.9C25 9.5 23.9 10.5 21.9 10.5H19.3V5.3Z" />
-              </svg>
+            <div class="h-8 px-3 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <Image src={mastercardLogo} alt="Mastercard" class="h-5 w-auto object-contain" height={20} format="webp" quality={80} loading="lazy" />
             </div>
-            <div class="h-8 px-2 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
-              <img src="/tamara-logo.png" alt="Tamara" class="h-5 w-auto object-contain" loading="lazy" />
+            <div class="h-8 px-3 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <Image src={applePayLogo} alt="Apple Pay" class="h-4 w-auto object-contain" height={16} format="webp" quality={80} loading="lazy" />
+            </div>
+            <div class="h-8 px-3 bg-white rounded-lg border border-gray-200 flex items-center justify-center">
+              <Image src={tamaraLogo} alt="Tamara" class="h-4 w-auto object-contain" height={16} format="webp" quality={80} loading="lazy" />
             </div>
           </div>
         </div>
@@ -117,10 +118,13 @@ const appStoreLink = "https://apps.apple.com/us/app/pilatopia/id6747145107";
         <div class="relative w-64 h-[520px] bg-[var(--text-primary)] rounded-[3rem] p-3 shadow-2xl">
           <div class="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10"></div>
           <div class="w-full h-full bg-white rounded-[2.4rem] overflow-hidden">
-            <img
-              src="/app-screenshot.png"
+            <Image
+              src={appScreenshot}
               alt="Pilatopia App"
               class="w-full h-full object-cover object-top"
+              width={256}
+              format="webp"
+              quality={85}
               loading="lazy"
             />
           </div>

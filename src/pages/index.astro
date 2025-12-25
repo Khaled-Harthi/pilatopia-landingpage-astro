@@ -2,21 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import type { Language } from '@/lib/translations';
 
-// React Islands (interactive components)
-import Navigation from '../components/islands/Navigation';
-import HeroSection from '../components/islands/HeroSection';
-import GiftSection from '../components/islands/GiftSection';
-import PricingSection from '../components/islands/PricingSection';
-import FAQSection from '../components/islands/FAQSection';
-import MembershipModal from '../components/islands/MembershipModal';
-
-// Static Astro Sections (zero JS)
+// All Astro Sections (zero client-side React/Framer Motion)
+import Navigation from '../components/sections/Navigation.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import GiftSection from '../components/sections/GiftSection.astro';
 import StudioSection from '../components/sections/StudioSection.astro';
-import ClassesSection from '../components/sections/ClassesSection.astro';
+import PricingSection from '../components/sections/PricingSection.astro';
 import AppSection from '../components/sections/AppSection.astro';
 import LocationSection from '../components/sections/LocationSection.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import ClassesSection from '../components/sections/ClassesSection.astro';
+import FAQSection from '../components/sections/FAQSection.astro';
 import Footer from '../components/sections/Footer.astro';
+import MembershipModal from '../components/sections/MembershipModal.astro';
 
 // Read language from cookie, default to 'en'
 const langCookie = Astro.cookies.get('pilatopia-lang');
@@ -25,59 +23,47 @@ const lang: Language = (langCookie?.value === 'ar' ? 'ar' : 'en') as Language;
 
 <Layout lang={lang}>
   <main>
-    <!-- Navigation: client:load for immediate interactivity (language toggle, mobile menu) -->
-    <Navigation client:load lang={lang} />
+    <Navigation lang={lang} />
 
-    <!-- Hero: client:load for immediate animations and class carousel -->
     <div id="hero" data-section="Hero">
-      <HeroSection client:load lang={lang} />
+      <HeroSection lang={lang} />
     </div>
 
-    <!-- Gift Section: client:visible (has occasion rotation animation) -->
     <div id="gift" data-section="Gift">
-      <GiftSection client:visible lang={lang} />
+      <GiftSection lang={lang} />
     </div>
 
-    <!-- Studio Gallery: Static Astro (no JS needed) -->
     <div id="studio" data-section="Studio">
       <StudioSection lang={lang} />
     </div>
 
-    <!-- Pricing: client:visible (has collapsible packages) -->
     <div id="pricing" data-section="Pricing">
-      <PricingSection client:visible lang={lang} />
+      <PricingSection lang={lang} />
     </div>
 
-    <!-- App Section: Static Astro (no JS needed) -->
     <div id="mobile-app" data-section="Mobile App">
       <AppSection lang={lang} />
     </div>
 
-    <!-- Location: Static Astro (Google Maps embed, no JS needed) -->
     <div id="location" data-section="Location">
       <LocationSection lang={lang} />
     </div>
 
-    <!-- CTA: Static Astro (no JS needed) -->
     <div id="cta" data-section="CTA">
       <CTASection lang={lang} />
     </div>
 
-    <!-- Classes: Static Astro (no JS needed) -->
     <div id="classes" data-section="Classes">
       <ClassesSection lang={lang} />
     </div>
 
-    <!-- FAQ: client:visible (has accordion) -->
     <div id="faq" data-section="FAQ">
-      <FAQSection client:visible lang={lang} />
+      <FAQSection lang={lang} />
     </div>
 
-    <!-- Footer: Static Astro (no JS needed) -->
     <Footer lang={lang} />
 
-    <!-- Membership Modal: client:idle (only hydrate when browser is idle) -->
-    <MembershipModal client:idle lang={lang} />
+    <MembershipModal lang={lang} />
   </main>
 
   <!-- Analytics Tracking -->

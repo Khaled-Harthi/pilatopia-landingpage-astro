@@ -1,6 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import type { Language } from '@/lib/translations';
 import { translations } from '@/lib/translations';
+
+import reformerRoom from '@/assets/reformer-room.jpg';
+import reception from '@/assets/reception.jpg';
+import cafe from '@/assets/cafe.jpg';
+import chairsRoom from '@/assets/chairs-room.jpg';
+import lockers from '@/assets/lockers.jpg';
 
 interface Props {
   lang: Language;
@@ -9,6 +16,15 @@ interface Props {
 const { lang } = Astro.props;
 const t = translations[lang];
 const isRTL = lang === 'ar';
+
+// Map image paths to imported images
+const imageMap: Record<string, ImageMetadata> = {
+  '/reformer-room.jpg': reformerRoom,
+  '/reception.jpg': reception,
+  '/cafe.jpg': cafe,
+  '/chairs-room.jpg': chairsRoom,
+  '/lockers.jpg': lockers,
+};
 ---
 
 <section id="studio" class="section-padding bg-white">
@@ -31,10 +47,14 @@ const isRTL = lang === 'ar';
     <div class="gallery-grid">
       {t.studio.images.map((image) => (
         <div class="relative rounded-2xl overflow-hidden group cursor-pointer">
-          <img
-            src={image.image}
+          <Image
+            src={imageMap[image.image]}
             alt={image.label}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            widths={[300, 500, 700]}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            format="webp"
+            quality={80}
             loading="lazy"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />

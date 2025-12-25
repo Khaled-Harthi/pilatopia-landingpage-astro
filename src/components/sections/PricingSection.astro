@@ -1,0 +1,185 @@
+---
+import type { Language } from '@/lib/translations';
+import { translations } from '@/lib/translations';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+const isRTL = lang === 'ar';
+---
+
+<section id="pricing-section" class="section-padding bg-[var(--bg-cream)]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center animate-on-scroll">
+      <p class="text-[var(--primary-dark)] font-medium mb-3 tracking-wide text-sm uppercase">
+        {t.pricing.label}
+      </p>
+
+      <div class="mb-4 flex items-baseline justify-center gap-3 flex-wrap">
+        <span
+          class="text-4xl sm:text-5xl font-medium text-[var(--text-primary)]"
+          style={`font-family: ${isRTL ? 'var(--font-body)' : 'var(--font-rufina), Georgia, serif'}`}
+        >
+          {t.pricing.title}
+        </span>
+        <span
+          class="text-4xl sm:text-5xl font-bold text-[var(--primary)] flex items-baseline gap-2"
+          style={`font-family: ${isRTL ? 'var(--font-body)' : 'var(--font-rufina), Georgia, serif'}`}
+        >
+          {t.pricing.titleHighlight}
+          <svg viewBox="0 0 1124.14 1256.39" class="h-8 sm:h-10 w-auto" fill="currentColor">
+            <path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+            <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+          </svg>
+        </span>
+      </div>
+
+      <p class="text-[var(--text-secondary)] max-w-2xl mx-auto mb-6">
+        {t.pricing.subtitle}
+      </p>
+
+      <details class="pricing-details" id="pricing-packages">
+        <summary class="inline-flex items-center gap-2 text-[var(--primary-dark)] font-medium hover:gap-3 transition-all mb-8 cursor-pointer list-none">
+          {t.pricing.viewPackages}
+          <svg class="pricing-chevron w-4 h-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+
+        <div class="packages-content pt-4">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {t.pricing.packages.map((pkg, index) => (
+              <div
+                class={`pricing-card relative bg-white rounded-2xl p-6 border-2 transition-all ${
+                  pkg.recommended
+                    ? 'border-[var(--primary)] shadow-lg shadow-[var(--primary)]/10 pt-8'
+                    : 'border-[var(--border-light)] hover:border-[var(--primary)]/30'
+                }`}
+                style={`--card-delay: ${index * 0.1}s`}
+              >
+                {pkg.recommended && (
+                  <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <span class="px-4 py-1.5 bg-[var(--primary)] text-white text-xs font-semibold rounded-full">
+                      {t.pricing.recommended}
+                    </span>
+                  </div>
+                )}
+
+                <div class="mb-4">
+                  <h3 class="font-semibold text-[var(--text-primary)] mb-1">{pkg.name}</h3>
+                  <p class="text-sm text-[var(--text-secondary)]">
+                    {pkg.classes} {t.pricing.classes}
+                  </p>
+                </div>
+
+                <div class="mb-4">
+                  <div class="flex items-baseline justify-center gap-2">
+                    {pkg.originalPrice && (
+                      <span class="text-sm text-[var(--text-secondary)] line-through">
+                        {pkg.originalPrice}
+                      </span>
+                    )}
+                    <span class="text-2xl font-bold text-[var(--text-primary)]">
+                      {pkg.price}
+                    </span>
+                    <span class="text-[var(--text-secondary)]">
+                      <svg viewBox="0 0 1124.14 1256.39" class="h-4 w-auto" fill="currentColor">
+                        <path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+                        <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+                      </svg>
+                    </span>
+                  </div>
+                  <p class="text-xs text-[var(--primary-dark)] font-medium mt-1 flex items-center justify-center gap-1">
+                    {pkg.pricePerClass}
+                    <svg viewBox="0 0 1124.14 1256.39" class="h-2.5 w-auto" fill="currentColor">
+                      <path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z" />
+                      <path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z" />
+                    </svg>
+                    {t.pricing.perClass}
+                  </p>
+                </div>
+
+                {pkg.note && (
+                  <p class="text-xs text-[var(--primary-dark)] bg-[var(--primary)]/10 rounded-lg px-3 py-2">
+                    {pkg.note}
+                  </p>
+                )}
+
+                {!pkg.noDiscount && (
+                  <div class="absolute top-4 right-4">
+                    <span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-medium rounded">
+                      {t.pricing.off}
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div>
+            <button
+              class="membership-btn inline-flex items-center gap-2 px-8 py-4 bg-[var(--primary)] text-white font-semibold rounded-full hover:bg-[var(--primary-dark)] transition-all group"
+            >
+              {t.cta.button}
+              {isRTL ? (
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+              ) : (
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pricing-details[open] .pricing-chevron {
+    transform: rotate(180deg);
+  }
+
+  .packages-content {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .pricing-card {
+    animation: cardFadeIn 0.4s ease-out both;
+    animation-delay: var(--card-delay);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes cardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.membership-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('open-membership'));
+    });
+  });
+</script>
